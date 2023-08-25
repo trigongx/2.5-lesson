@@ -21,13 +21,56 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView tv_entrance = findViewById(R.id.entrance);
-        TextView tv_welcome = findViewById(R.id.welcome);
-        TextView tv_mini = findViewById(R.id.minitext);
-        TextView tv_idk = findViewById(R.id.forgotpassword);
+        TextView tv_welcome = findViewById(R.id.tv_welcome);
+        TextView tv_mini = findViewById(R.id.tv_minitext);
 
         Button btn_enter = findViewById(R.id.button);
-        EditText et_login = findViewById(R.id.login);
-        EditText et_password = findViewById(R.id.password);
+        EditText et_login = findViewById(R.id.et_login);
+        EditText et_password = findViewById(R.id.et_password);
+
+        et_login.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(et_login.getText().toString().isEmpty()){
+                    btn_enter.setBackgroundColor(Color.GRAY);
+                }
+                else{
+                    btn_enter.setBackgroundColor(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        et_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(et_password.getText().toString().isEmpty()){
+                    btn_enter.setBackgroundColor(Color.GRAY);
+                }
+                else{
+                    btn_enter.setBackgroundColor(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
 
@@ -42,17 +85,11 @@ public class MainActivity extends AppCompatActivity {
                 btn_enter.setVisibility(View.GONE);
                 tv_entrance.setVisibility(View.GONE);
                 tv_mini.setVisibility(View.GONE);
-                tv_idk.setVisibility(View.GONE);
                 tv_welcome.setVisibility(View.VISIBLE);
             } else {
                 Toast.makeText(MainActivity.this, "Неправильный логин или пароль", Toast.LENGTH_SHORT).show();
             }
         });
-        /*et_login.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-            }
-        });*/
 
     }
 }

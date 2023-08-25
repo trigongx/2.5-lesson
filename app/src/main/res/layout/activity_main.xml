@@ -21,25 +21,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/welcome"
+        android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Добро пожаловать!"
         app:layout_constraintStart_toStartOf="@id/entrance"
         app:layout_constraintEnd_toEndOf="@id/entrance"
         app:layout_constraintTop_toBottomOf="@id/entrance"
+        app:layout_constraintBottom_toTopOf="@id/tv_minitext"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="30dp"
         android:layout_marginTop="230dp"/>
 
     <TextView
-        android:id="@+id/minitext"
+        android:id="@+id/tv_minitext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/welcome"
-        app:layout_constraintEnd_toEndOf="@id/welcome"
-        app:layout_constraintTop_toBottomOf="@id/welcome"
+        app:layout_constraintStart_toStartOf="@id/tv_welcome"
+        app:layout_constraintEnd_toEndOf="@id/tv_welcome"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome"
+        app:layout_constraintBottom_toTopOf="@id/et_login"
         android:gravity="center"
         android:text="Выполните вход \u000A или зарегистрируйтесь."
         android:textColor="@color/white"
@@ -47,10 +49,12 @@
     <EditText
         app:circularflow_radiusInDP="20dp"
         android:elevation="10dp"
-        android:id="@+id/login"
+        android:id="@+id/et_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/minitext"
+        app:layout_constraintTop_toBottomOf="@id/tv_minitext"
+        app:layout_constraintBottom_toBottomOf="@id/et_password"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="60dp"
         android:textColorHint="@color/grey"
         android:background="@color/white"
@@ -60,10 +64,11 @@
     <EditText
         app:circularflow_radiusInDP="20dp"
         android:elevation="10dp"
-        android:id="@+id/password"
+        android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/login"
+        app:layout_constraintTop_toBottomOf="@id/et_login"
+        app:layout_constraintBottom_toTopOf="@id/button"
         android:layout_marginTop="20dp"
         android:textColorHint="@color/grey"
         android:background="@color/white"
@@ -76,20 +81,11 @@
         android:layout_height="wrap_content"
         android:text="Войти"
         android:backgroundTint="@color/grey"
-        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/et_password"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="20dp"
         app:cornerRadius="10dp"/>
-    <TextView
-        android:id="@+id/forgotpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Забыл пароль?"
-        app:layout_constraintTop_toBottomOf="@id/button"
-        app:layout_constraintStart_toStartOf="@id/button"
-        app:layout_constraintEnd_toEndOf="@id/button"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"/>
 
 
 
